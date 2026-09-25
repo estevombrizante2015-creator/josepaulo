@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/*
+ * Identidade visual — arquitetura.md §3 a §5.
+ * O dourado é usado somente como detalhe (§4).
+ */
+@theme {
+  --color-ink: #0b0d0f; /* Preto */
+  --color-graphite: #161a1d; /* Grafite */
+  --color-navy: #102a43; /* Azul profundo */
+  --color-royal: #1d4e89; /* Azul institucional */
+  --color-gold: #b89b5e; /* Dourado sóbrio */
+  --color-paper: #f7f7f5; /* Branco */
+
+  /* Derivados para garantir contraste AA em texto */
+  --color-gold-deep: #7e6533; /* dourado sobre fundo claro */
+  --color-mist: #9ba1a6; /* texto secundário sobre fundo escuro */
+  --color-slate: #4a5056; /* texto secundário sobre fundo claro */
+
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-intro-fade: intro-fade 1.2s var(--ease-editorial) both;
+  --animate-intro-rise: intro-rise 0.9s var(--ease-editorial) both;
+  --animate-intro-line-x: intro-line-x 1.2s var(--ease-out-expo) both;
+  --animate-intro-line-y: intro-line-y 1.4s var(--ease-out-expo) both;
+  --animate-scan: scan 10s linear infinite;
+  --animate-pulse-ring: pulse-ring 2.8s var(--ease-editorial) infinite;
+}
+
+/* Tokens contextuais: mudam conforme o tom da seção (.tone-dark / .tone-light). */
+@theme inline {
+  --font-serif: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: var(--canvas);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-accent: var(--accent);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+}
+
+@keyframes intro-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 1.25rem, 0);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+@keyframes intro-line-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes intro-line-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes scan {
+  from {
+    transform: translateX(-30vw);
+  }
+  to {
+    transform: translateX(110vw);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+
+@keyframes parallax-drift {
+  to {
+    transform: translate3d(0, var(--parallax-distance, 4rem), 0);
+  }
+}
+
+@layer base {
+  :root,
+  .tone-dark {
+    --canvas: var(--color-ink);
+    --fg: var(--color-paper);
+    --fg-muted: var(--color-mist);
+    --accent: var(--color-gold);
+    --line: rgb(247 247 245 / 0.1);
+    --surface: var(--color-graphite);
+  }
+
+  .tone-light {
+    --canvas: var(--color-paper);
+    --fg: var(--color-ink);
+    --fg-muted: var(--color-slate);
+    --accent: var(--color-gold-deep);
+    --line: rgb(11 13 15 / 0.12);
+    --surface: #ecebe6;
+  }
+
+  html {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    min-height: 100dvh;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  :where(h1, h2, h3) {
+    text-wrap: balance;
+  }
+
+  :where(p, li, dd) {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: rgb(184 155 94 / 0.35);
+  }
+
+  :focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 4px;
+  }
+}
+
+/* Tipografia editorial: serifada nos títulos, sans nos textos (§5). */
+@utility type-display {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 5.4vw, 5.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+@utility type-title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.25rem, 4.2vw, 4rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+}
+
+@utility type-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 0.5s var(--ease-editorial);
+
+  &:hover,
+  &:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+/* Grade arquitetônica discreta (§67). */
+@utility bg-blueprint {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+}
+
+/* Granulação cinematográfica (§9). */
+@utility bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* Parallax leve, somente desktop e somente sem preferência por movimento reduzido (§35). */
+@utility parallax {
+  @media (prefers-reduced-motion: no-preference) and (min-width: 64rem) {
+    @supports (animation-timeline: scroll()) {
+      animation: parallax-drift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+    }
+  }
+}
+
+/* Movimento reduzido (§46). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
