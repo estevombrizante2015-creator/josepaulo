@@ -10,7 +10,7 @@ const currentYear = new Date().getFullYear();
 /** Rodapé minimalista (arquitetura.md §32). */
 export function Footer() {
   return (
-    <footer className="tone-dark relative border-t border-line bg-ink pt-20 pb-28 text-fg lg:pt-28 lg:pb-12">
+    <footer className="tone-dark relative border-t border-line bg-ink pt-20 pb-28 text-fg lg:pt-28">
       <Container>
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">

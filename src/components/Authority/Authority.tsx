@@ -14,7 +14,7 @@ export function Authority() {
         <ul className="grid border-t border-line md:grid-cols-3">
           {authority.items.map((item, index) => (
             <li key={item.title} className="border-b border-line md:border-b-0 md:not-first:border-l">
-              <Reveal delay={index * 0.1} className={cn("h-full py-10 md:px-8 md:py-12 lg:px-10", index === 0 && "md:pl-0")}>
+              <Reveal delay={index * 0.1} className={cn("h-full py-10 md:px-8 md:py-12 lg:px-10", index === 0 && "md:pl-0 lg:pl-0")}>
                 <span className="font-serif text-2xl text-accent italic">{ordinal(index)}</span>
                 <h3 className="type-eyebrow mt-12 text-fg">{item.title}</h3>
                 <p className="mt-4 max-w-xs leading-relaxed text-fg-muted">{item.text}</p>

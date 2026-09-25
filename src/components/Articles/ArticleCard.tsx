@@ -24,14 +24,12 @@ export function ArticleCard({ article }: { article: Article }) {
         </div>
       )}
       <div className="flex flex-1 flex-col p-7 lg:p-8">
-        <p className="type-eyebrow flex items-center justify-between gap-4 text-accent">
-          <span>
-            {articlesSection.cardLabel} · {article.category}
-          </span>
-          <time dateTime={article.date} className="text-fg-muted normal-case tracking-normal">
-            {formatDate(article.date)}
-          </time>
+        <p className="type-eyebrow text-accent">
+          {articlesSection.cardLabel} · {article.category}
         </p>
+        <time dateTime={article.date} className="mt-2 block text-sm text-fg-muted">
+          {formatDate(article.date)}
+        </time>
         <h3 className="mt-6 font-serif text-2xl leading-snug text-fg">
           <Link
             href={`/conteudos/${article.slug}`}

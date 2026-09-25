@@ -98,16 +98,18 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <ButtonLink
-              href={whatsappHref()}
-              external
-              variant="outline"
-              track="whatsapp_click"
-              trackLocation="header"
-              className="hidden h-11 px-5 lg:inline-flex"
-            >
-              {hero.primaryCta}
-            </ButtonLink>
+            <div className="hidden lg:block">
+              <ButtonLink
+                href={whatsappHref()}
+                external
+                variant="outline"
+                size="sm"
+                track="whatsapp_click"
+                trackLocation="header"
+              >
+                {hero.primaryCta}
+              </ButtonLink>
+            </div>
 
             <button
               type="button"

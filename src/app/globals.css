@@ -139,6 +139,8 @@
   body {
     min-height: 100dvh;
     font-family: var(--font-sans);
+    /* Algarismos alinhados: a Cormorant usa estilo antigo por padrão */
+    font-variant-numeric: lining-nums;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;

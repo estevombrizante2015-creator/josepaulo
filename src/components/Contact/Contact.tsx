@@ -102,7 +102,7 @@ export function Contact({ showHeader = true }: { showHeader?: boolean }) {
                 track="map_click"
                 trackLabel="como-chegar"
                 trackLocation="contato"
-                className="px-5"
+                size="sm"
               >
                 Como chegar
               </ButtonLink>
@@ -112,7 +112,7 @@ export function Contact({ showHeader = true }: { showHeader?: boolean }) {
                 icon={<PhoneIcon className="size-4" />}
                 track="phone_click"
                 trackLocation="contato-botoes"
-                className="px-5"
+                size="sm"
               >
                 Ligar
               </ButtonLink>
@@ -122,7 +122,7 @@ export function Contact({ showHeader = true }: { showHeader?: boolean }) {
                 icon={<WhatsAppIcon className="size-4" />}
                 track="whatsapp_click"
                 trackLocation="contato-botoes"
-                className="px-5"
+                size="sm"
               >
                 Falar no WhatsApp
               </ButtonLink>

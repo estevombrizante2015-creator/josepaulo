@@ -46,7 +46,7 @@ export function LocationMap() {
             <path d="M300 -10 L 260 310" strokeWidth="2" />
           </svg>
 
-          <div className="absolute top-[42%] left-1/2 -translate-1/2 text-accent">
+          <div className="absolute top-[30%] left-1/2 -translate-1/2 text-accent sm:top-[40%]">
             <span aria-hidden="true" className="animate-pulse-ring absolute inset-0 rounded-full border border-accent" />
             <span className="relative flex size-14 items-center justify-center rounded-full border border-accent/60 bg-ink/80 backdrop-blur-sm">
               <MapPinIcon className="size-6" />

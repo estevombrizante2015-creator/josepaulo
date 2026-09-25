@@ -16,7 +16,7 @@ export function Differentials() {
     >
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(70%_60%_at_100%_0%,rgb(29_78_137/0.4),transparent_70%)]" />
-        <ArchitecturalPlan className="absolute -right-32 -bottom-10 w-[44rem] text-paper/[0.07] md:-right-16" />
+        <ArchitecturalPlan className="absolute -bottom-16 -left-24 hidden w-[40rem] text-paper/[0.07] lg:block" />
         <div className="bg-grain absolute inset-0 opacity-[0.05] mix-blend-overlay" />
       </div>
 
@@ -28,7 +28,7 @@ export function Differentials() {
               label={differentials.label}
               title={differentials.title}
               titleId="diferenciais-titulo"
-              className="mb-0 md:mb-0"
+              className="mb-0"
             />
           </div>
         </div>

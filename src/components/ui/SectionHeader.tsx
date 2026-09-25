@@ -1,7 +1,6 @@
 import type { ReactNode } from "react";
 import { Emphasis } from "@/components/ui/Emphasis";
 import { Reveal } from "@/components/ui/Reveal";
-import { cn } from "@/lib/utils";
 
 type SectionHeaderProps = {
   /** Numeração editorial ("Nº 002"). Apenas elemento visual (§38, §66). */
@@ -9,13 +8,14 @@ type SectionHeaderProps = {
   label: string;
   title: string;
   titleId: string;
+  /** Substitui o espaçamento inferior padrão ("mb-14 md:mb-20"). */
   className?: string;
   children?: ReactNode;
 };
 
 export function SectionHeader({ index, label, title, titleId, className, children }: SectionHeaderProps) {
   return (
-    <header className={cn("mb-14 md:mb-20", className)}>
+    <header className={className ?? "mb-14 md:mb-20"}>
       <div className="type-eyebrow flex items-center gap-4">
         <span className="text-accent">Nº {index}</span>
         <span className="text-fg-muted">{label}</span>

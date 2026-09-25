@@ -46,6 +46,7 @@ export function Transparency() {
                     data-track-location="transparencia"
                   >
                     {phoneDisplay}
+                    <span className="sr-only"> (abre em nova aba)</span>
                   </a>
                 </li>
                 <li>

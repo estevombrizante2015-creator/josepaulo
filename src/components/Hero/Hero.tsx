@@ -38,7 +38,7 @@ export function Hero() {
         {/* Linha vertical (desktop) */}
         <span
           aria-hidden="true"
-          className="animate-intro-line-y pointer-events-none col-start-8 row-[1/3] -ml-4 hidden w-px origin-top bg-linear-to-b from-transparent via-paper/15 to-paper/25 [animation-delay:250ms] lg:block"
+          className="animate-intro-line-y pointer-events-none col-start-8 row-start-1 -ml-4 hidden w-px origin-top bg-linear-to-b from-transparent via-paper/15 to-paper/25 [animation-delay:250ms] lg:block"
         />
 
         <div className="row-start-1 flex flex-col justify-center pt-32 pb-14 lg:col-span-7 lg:col-start-1 lg:pt-40 lg:pb-20">
